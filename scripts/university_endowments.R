@@ -28,7 +28,7 @@ plot_endowment <- endowment_raw %>%
   ) +
   labs(
     title = "Top 20 University Endowments", 
-    caption = c("Data: nces.ed.gov; FY '21\nViz: Tim Fulton, PhD")
+    caption = c("Data: nces.ed.gov; FY 2021\nViz: Tim Fulton, PhD")
   ) +
   geom_treemap(
     start = "topleft",
