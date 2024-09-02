@@ -14,7 +14,7 @@ showtext_auto()
 
 # Create plot
 plot_endowment <- endowment_raw %>% 
-  ggplot(mapping = aes(area = year_2021, subgroup = subgroup, fill = hex, label = glue("{institution_short}\n{label_text}"))) +
+  ggplot(mapping = aes(area = year_2021, subgroup = subgroup, fill = subgroup, label = glue("{institution_short}\n{label_text}"))) +
   theme_classic() +
   theme(
     text = element_text(family = "Roboto"),
@@ -22,13 +22,15 @@ plot_endowment <- endowment_raw %>%
     axis.ticks = element_blank(),
     plot.title.position = "plot",
     plot.caption.position = "plot",
-    plot.title = element_text(size = 18, face = "bold", hjust = 0, margin = margin(b = 10)),
+    plot.title = element_text(size = 14, face = "bold", hjust = 0, margin = margin(b = 10)),
+    plot.subtitle = element_text(size = 11, hjust = 0, margin = margin(b = 10)),
     plot.caption = element_text(size = 9, face = "italic", hjust = 0, margin = margin(t = 10)),
     legend.position = "none"
   ) +
   labs(
-    title = "Top 20 University Endowments", 
-    caption = c("Data: nces.ed.gov; FY 2021\nViz: Tim Fulton, PhD")
+    title = "Ivy League institutions lead in endowment wealth", 
+    subtitle = "Top 20 largest university endowments for fiscal year 2021",
+    caption = c("Data: nces.ed.gov\nViz: Tim Fulton, PhD")
   ) +
   geom_treemap(
     start = "topleft",
@@ -56,7 +58,7 @@ plot_endowment <- endowment_raw %>%
     padding.x = grid::unit(2, "mm"),
     padding.y = grid::unit(2, "mm"),
   ) + 
-  scale_fill_identity()
+  scale_fill_manual(values = c("#18521C", "#6F9371", "#C5D4C6"))
 
 # Save plot
 ggsave("plots/endowments.png", 
