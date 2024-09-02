@@ -1,4 +1,4 @@
-# Top 20 University Endowments
+# University Endowments Visualization
 
 This repo containts the code used to create the university endowments visualization: 
 
